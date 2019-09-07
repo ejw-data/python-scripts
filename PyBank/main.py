@@ -24,13 +24,7 @@ with open(csvpath) as csvfile:
     
     net_income_values = [float(x) for x in net_income]
 
-    # #create dictionary
-    # for key in dict:
-    #     bank_data = {"month":month, "net_income": net_income}
-    #       print(month, '-->', dict[key])
-    #
-
-    #list.index(element)
+    #For Large Datasets:  to shorten I could sum the income in the loop by adding 'income = sum(row[1])' and count = sum(1 for row)'
 
     tot_months = len(date)  
     tot_income = sum(net_income_values)
@@ -46,3 +40,10 @@ with open(csvpath) as csvfile:
     print(f'Average Change: {aver_change}')
     print(f'Greatest Increase in Profits: {date[net_income_values.index(greatest_profit)]}  {greatest_profit}')
     print(f'Greatest Decrease in Profits: {date[net_income_values.index(greatest_loss)]}  {greatest_loss}')
+
+    #Add code to print to text file
+    #https://stackoverflow.com/questions/36571560/directing-print-output-to-a-txt-file-in-python-3/36571602
+    #https://stackoverflow.com/questions/24204898/python-output-on-both-console-and-file/24206109#24206109
+    #File_object = open(r"PyBank_Results","w")
+    #file.write()
+    #file.close()

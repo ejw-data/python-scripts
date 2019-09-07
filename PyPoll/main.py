@@ -22,7 +22,9 @@ with open(csvpath) as csvfile:
         id.append(row[0])
         county.append(row[1])
         candidate.append(row[2])
-    
+   #create dictionary of candidates and add each time they get a vote
+   #https://www.geeksforgeeks.org/python-sum-list-of-dictionaries-with-same-key/
+   #https://www.quora.com/How-do-I-sum-the-values-of-each-key-in-a-Python-dictionary-and-then-display-the-result-as-key-summed-value 
 
 
     print(f'')
@@ -30,6 +32,7 @@ with open(csvpath) as csvfile:
     print(f'------------------------------------------')
     print(f'Total Votes:')
     print(f'------------------------------------------')
+    # replace this section with for loop
     print(f'Khan:')
     print(f'Correy:')
     print(f'Li:')
