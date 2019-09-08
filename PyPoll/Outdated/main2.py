@@ -28,58 +28,41 @@ with open(csvpath) as csvfile:
             dict_final[k] = n  #dict_add could be replaced with 1
         
     ###################################################################
-    ################### Printout Dict to .txt #########################
-    f = open('output.txt',"w+")
-    print(f'', file=f)
-    print(f'Election Results', file=f)
-    print(f'------------------------------------------', file=f)
-    total_votes = sum(dict_final.values())
-    print(f'Total Votes: {total_votes}', file=f)
-    print(f'------------------------------------------', file=f)
+    ####################### Printout Dict #############################
+
+    x_p = [] 
+    x_p0 = '\nElection Results'
+    x_p1 = '------------------------------------------'
+    x_p2 = f'Total Votes:'
+    x_p3 = '------------------------------------------'
 
     # print all key-value pairs via a loop
     for k, v in dict_final.items():
-        print(f'{k}:  {round(v/total_votes*100,1)}%  ({v})', file=f)
-    print(f'------------------------------------------', file=f)
+        print(f'{k}:  {v}', file=f)
+
+    x_p5 = '------------------------------------------'
     
     # find and print the key of the max vote count
     max_value = max(dict_final.values())
     max_keys = [k for k, v in dict_final.items() if v == max_value] 
     if len(max_keys)>1:
-        print(f'There was a tie with:  {max_keys}', file=f)
+        x_p6 = f'There was a tie with:  {max_keys}'
     else:
-        print(f'Winner: {max_keys[0]}', file=f)
-    print(f'------------------------------------------', file=f)
+        x_p6 = f'Winner: {max_keys[0]}'
+    x_p7 = '------------------------------------------'
 
+    ####################################################################################
+    ########################## Print Outputs ###########################################
+
+    # Print to terminal
+    for x in x_p:
+        print(x)
+
+    # Print to text document
+    f = open('output.txt',"w+")
+    for x in x_p:
+        print(x, file=f)
     f.close()
-
-    ###################################################################
-    ################ Printout Dict to terminal ########################
-
-    # print(f'\nElection Results')
-    # print(f'------------------------------------------')
-    # total_votes = sum(dict_final.values())
-    # print(f'Total Votes: {total_votes}')
-    # print(f'------------------------------------------')
-
-    # # print all key-value pairs via a loop
-    # for k, v in dict_final.items():
-    #     print(f'{k}:  {round(v/total_votes*100,1)}%  ({v})')
-    # print(f'------------------------------------------')
-    
-    # # find and print the key of the max vote count
-    # max_value = max(dict_final.values())
-    # max_keys = [k for k, v in dict_final.items() if v == max_value] 
-    # if len(max_keys)>1:
-    #     print(f'There was a tie with:  {max_keys}')
-    # else:
-    #     print(f'Winner: {max_keys[0]}')
-    # print(f'------------------------------------------')
-
-# I could use the code above or I could just open the file that I created
-# Below is the output file printed to the terminal.
-with open('output.txt', 'r') as fin:
-    print(fin.read())
 
 ###################################################################
 ######################## Data Check ###############################
